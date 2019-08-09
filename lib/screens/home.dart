@@ -21,7 +21,7 @@ class HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    new Timer.periodic(Duration(minutes: 1), (Timer t) => setState(() {}));
+    new Timer.periodic(Duration(minutes: 5), (Timer t) => setState(() {}));
   }
 
   @override

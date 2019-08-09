@@ -22,10 +22,13 @@ class About extends StatelessWidget {
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.only(bottom: 6.0),
-                    child: Image(
-                      image: AssetImage("asset/logo/MCER.png"),
-                      height: 150.0,
-                      width: 150.0,
+                    child: ClipRRect(
+                      borderRadius: new BorderRadius.circular(8.0),
+                      child: Image(
+                        image: AssetImage("asset/logo/MCER.png"),
+                        height: 150.0,
+                        width: 150.0,
+                      ),
                     ),
                   ),
                   Text(
@@ -46,6 +49,20 @@ class About extends StatelessWidget {
                 }
               },
               text: "Source code: https://github.com/PyaeSoneAungRgn/mcer",
+              style: Theme.of(context).textTheme.subtitle,
+            ),
+          ),Container(
+            margin: EdgeInsets.only(left: 10.0, top: 10.0),
+            alignment: Alignment.centerLeft,
+            child: Linkify(
+              onOpen: (link) async {
+                if (await canLaunch(link.url)) {
+                  await launch(link.url);
+                } else {
+                  throw 'Could not launch $link';
+                }
+              },
+              text: "Developer: http://pyaesoneaung.com",
               style: Theme.of(context).textTheme.subtitle,
             ),
           ),
